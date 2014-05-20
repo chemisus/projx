@@ -9,17 +9,19 @@ class InstallCommand implements Command
      */
     public function execute(Configuration $configuration, array $arguments)
     {
-        foreach ($configuration->libraries() as $library) {
-            $directory = $configuration->directory() . '/' . $library->name();
+        $libraries = $configuration->libraries();
+
+        foreach ($libraries->resources() as $resource) {
+            $directory = $libraries->directory() . '/' . $resource->name();
 
             if (!is_dir($directory)) {
                 mkdir($directory, 0777, true);
 
                 `cd {$directory};
                 git init;
-                git remote add origin {$library->repository()};
-                git pull origin {$library->version()};
-                git checkout {$library->version()}`;
+                git remote add origin {$resource->repository()};
+                git pull origin {$resource->version()};
+                git checkout {$resource->version()}`;
             }
         }
     }

@@ -12,14 +12,7 @@ spl_autoload_register(function ($classname) {
 function main(array $arguments)
 {
     $projx = new Projx(
-        new Configuration(json_decode('' .
-            '{' .
-            '"directory":"lib",' .
-            '"libraries":[' .
-            '{"name":"chemisus/snuggie", "version": "master", "repository": "http://github.com/chemisus/snuggie"}' .
-            ']' .
-            '}' .
-            '')),
+        new Configuration(json_decode(file_get_contents('projx.json'))),
         [
             'install' => new InstallCommand(),
         ]

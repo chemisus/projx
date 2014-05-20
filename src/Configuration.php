@@ -10,21 +10,10 @@ class Configuration
     }
 
     /**
-     * @return string
+     * @return LibrariesConfiguration
      */
-    public function directory()
-    {
-        return $this->json->directory;
-    }
-
     public function libraries()
     {
-        $libraries = [];
-
-        foreach ($this->json->libraries as $library) {
-            $libraries[] = new JsonLibrary($library);
-        }
-
-        return $libraries;
+        return new LibrariesConfiguration($this->json->libraries);
     }
 }

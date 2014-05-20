@@ -1,0 +1,17 @@
+{
+    "libraries": {
+        "directory": "lib",
+        "resources": [
+            {
+                "name": "sebastianbergmann/phpunit",
+                "repository": "https://github.com/sebastianbergmann/phpunit",
+                "version": "master"
+            },
+            {
+                "name": "chemisus/snuggie",
+                "repository": "http://github.com/chemisus/snuggie",
+                "version": "master"
+            }
+        ]
+    }
+}
